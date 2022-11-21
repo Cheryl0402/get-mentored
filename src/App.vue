@@ -14,6 +14,9 @@
               <router-link class="nav-link pr-3" to="/career">Career Resources</router-link>
             </li>
             <li class="nav-item">
+              <router-link class="nav-link pr-3" to="/mentor">Mentor Resources</router-link>
+            </li>
+            <li class="nav-item">
               <router-link class="nav-link pr-3" to="/mentor-profile" v-if="mentorLoggedIn">Profile</router-link>
             </li>
             <li class="nav-item">

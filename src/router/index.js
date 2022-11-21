@@ -37,6 +37,11 @@ const routes = [
     component: () => import('../components/Career')
   },
   {
+    path: '/mentor',
+    name: 'mentor',
+    component: () => import('../components/Mentor')
+  },
+  {
     path: '/mentor-profile',
     name: 'mentor-profile',
     component: () => import('../components/mentor/Profile'),
