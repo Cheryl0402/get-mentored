@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <section class="newsletter-subscribe py-4 py-xl-5">
+    <section class="newsletter-subscribe ">
       <div class="container">
         <div class="row mb-2">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
@@ -21,15 +21,24 @@
         </form>
       </div>
     </section>
+    <div class="container py-4 py-xl-5 px-5">
+      <div class="d-flex flex-wrap justify-content-around gy-4">
+        <div class="mentor-card flex-shrink-0 mb-5" v-for="item in 7" :key="item">
+          <MentorCard />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
+import MentorCard from '@/components/mentor/MentorCard'
 export default {
   name: 'Mentor',
+  components: { MentorCard },
   data () {
     return {
       searchKey: '',
-      careers: [],
+      mentors: [],
       page: 0,
       perPage: 20
     }
@@ -37,7 +46,7 @@ export default {
   async created () {
     try {
       const response = await this.$http.get('/mentor')
-      this.careers = response.data
+      this.mentors = response.data
     } catch (error) {
       console.log(error.response)
     }
@@ -45,8 +54,8 @@ export default {
   computed: {
     filteredList () {
       this.initiatePage()
-      return this.careers.filter(career => {
-        return career.occupation_title.toLowerCase().includes(this.searchKey.toLowerCase())
+      return this.mentors.filter(mentor => {
+        return mentor.occupation_title.toLowerCase().includes(this.searchKey.toLowerCase())
       })
     },
     displayList () {
@@ -98,5 +107,9 @@ export default {
 button.page-link {
   display: inline-block;
   color: #000;
+}
+
+.mentor-card {
+  width: 340px;
 }
 </style>
