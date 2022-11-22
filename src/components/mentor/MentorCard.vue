@@ -31,13 +31,7 @@ export default {
   props: {
     mentor: {
       type: Object,
-      default: () => ({
-        first_name: 'Jessica',
-        last_name: 'Jams',
-        email: '',
-        occupation_title: 'Software Enginner',
-        company_name: 'ByteDance Inc'
-      })
+      default: () => {}
     }
   },
   computed: {
@@ -49,5 +43,7 @@ export default {
 </script>
 
 <style scoped>
-
+.fit-cover {
+  object-fit: cover;
+}
 </style>
